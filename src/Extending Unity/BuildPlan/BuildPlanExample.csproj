@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="3.*" />
+    <PackageReference Include="Unity.Abstractions" Version="4.*" />
   </ItemGroup>
 
 
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityContainer)')">
-    <PackageReference Include="Unity.Container" Version="5.*" />
+    <PackageReference Include="Unity.Container" Version="5.9.*" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
@@ -8,29 +8,36 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <UnityAbstractions>..\..\..\..\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
-    <UnityContainer>..\..\..\..\Container\src\Unity.Container.csproj</UnityContainer>
+    <Abstractions>..\..\..\..\Abstractions\src\Unity.Abstractions.csproj</Abstractions>
+    <Container>..\..\..\..\Container\src\Unity.Container.csproj</Container>
+    <log4net>..\..\..\..\Log4net\src\Unity.log4net.csproj</log4net>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists('$(UnityAbstractions)')">
-    <ProjectReference Include="$(UnityAbstractions)" />
+
+  <ItemGroup Condition="Exists('$(Abstractions)')">
+    <ProjectReference Include="$(Abstractions)" />
   </ItemGroup>
 
-  <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="3.*" />
+  <ItemGroup Condition="!Exists('$(Abstractions)')">
+    <PackageReference Include="Unity.Abstractions" Version="4.*" />
   </ItemGroup>
 
 
-  <ItemGroup Condition="Exists('$(UnityContainer)')">
-    <ProjectReference Include="$(UnityContainer)" />
+  <ItemGroup Condition="Exists('$(Container)')">
+    <ProjectReference Include="$(Container)" />
   </ItemGroup>
 
-  <ItemGroup Condition="!Exists('$(UnityContainer)')">
-    <PackageReference Include="Unity.Container" Version="5.*" />
+  <ItemGroup Condition="!Exists('$(Container)')">
+    <PackageReference Include="Unity.Container" Version="5.9.*" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Unity.log4net" Version="1.0.1" />
+
+  <ItemGroup Condition="Exists('$(log4net)')">
+    <ProjectReference Include="$(log4net)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(log4net)')">
+    <PackageReference Include="Unity.log4net" Version="1.1.*" />
   </ItemGroup>
 
 </Project>
