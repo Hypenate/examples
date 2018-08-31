@@ -5,28 +5,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <UnityAbstractions>..\..\..\..\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
-    <UnityContainer>..\..\..\..\Container\src\Unity.Container.csproj</UnityContainer>
     <DependencyInjection>..\..\..\..\Microsoft.DependencyInjection\src\Unity.Microsoft.DependencyInjection.csproj</DependencyInjection>
   </PropertyGroup>
-
-  <ItemGroup Condition="Exists('$(UnityAbstractions)')">
-    <ProjectReference Include="$(UnityAbstractions)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="4.*" />
-  </ItemGroup>
-
-
-  <ItemGroup Condition="Exists('$(UnityContainer)')">
-    <ProjectReference Include="$(UnityContainer)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(UnityContainer)')">
-    <PackageReference Include="Unity.Container" Version="5.9.*" />
-  </ItemGroup>
-
 
   <ItemGroup Condition="Exists('$(DependencyInjection)')">
     <ProjectReference Include="$(DependencyInjection)" />

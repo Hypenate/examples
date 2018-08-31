@@ -9,27 +9,8 @@
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
     <StartupObject />
-    <Abstractions>..\..\..\..\Abstractions\src\Unity.Abstractions.csproj</Abstractions>
-    <Container>..\..\..\..\Container\src\Unity.Container.csproj</Container>
     <MicrosoftLogging>..\..\..\..\Microsoft.Logging\src\Unity.Microsoft.Logging.csproj</MicrosoftLogging>
   </PropertyGroup>
-
-  <ItemGroup Condition="Exists('$(Abstractions)')">
-    <ProjectReference Include="$(Abstractions)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(Abstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="4.*" />
-  </ItemGroup>
-
-
-  <ItemGroup Condition="Exists('$(Container)')">
-    <ProjectReference Include="$(Container)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(Container)')">
-    <PackageReference Include="Unity.Container" Version="5.9.*" />
-  </ItemGroup>
 
 
   <ItemGroup Condition="Exists('$(MicrosoftLogging)')">
