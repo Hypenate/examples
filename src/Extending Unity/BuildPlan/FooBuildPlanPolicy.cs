@@ -7,7 +7,7 @@ namespace BuildPlanExample
 {
     public class FooBuildPlanPolicy : IBuildPlanPolicy
     {
-        public void BuildUp(IBuilderContext context)
+        public void BuildUp<T>(ref T context) where T : IBuilderContext
         {
             // Resolve requested type
             var argument = context.BuildKey.Type.GetTypeInfo().GenericTypeArguments[0];

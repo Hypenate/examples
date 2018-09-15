@@ -2,7 +2,6 @@
 using Unity.Builder;
 using Unity.ObjectBuilder.BuildPlan.DynamicMethod;
 using Unity.Policy;
-using Unity.Storage;
 
 namespace BuildPlanCreatorExample
 {
@@ -22,7 +21,7 @@ namespace BuildPlanCreatorExample
             _policies = policies;
         }
 
-        public IBuildPlanPolicy CreatePlan(IBuilderContext context, INamedType buildKey)
+        public IBuildPlanPolicy CreatePlan<T>(ref T context, INamedType buildKey) where T : IBuilderContext
         {
             // Make generic factory method for the type
             var typeToBuild = buildKey.Type.GetTypeInfo().GenericTypeArguments;
