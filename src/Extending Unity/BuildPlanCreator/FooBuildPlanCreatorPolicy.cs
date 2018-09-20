@@ -22,7 +22,7 @@ namespace BuildPlanCreatorExample
             _policies = policies;
         }
 
-        public IBuildPlanPolicy CreatePlan<T>(ref T context, INamedType buildKey) where T : IBuilderContext
+        public IBuildPlanPolicy CreatePlan<TContext>(ref TContext context, INamedType buildKey) where TContext : IBuilderContext
         {
             // Make generic factory method for the type
             var typeToBuild = buildKey.Type.GetTypeInfo().GenericTypeArguments;
@@ -38,7 +38,7 @@ namespace BuildPlanCreatorExample
             return creatorPlan;
         }
 
-        private static void FactoryMethod<TResult>(IBuilderContext context)
+        private static void FactoryMethod<TContext, TResult>(ref TContext context) where TContext : IBuilderContext
         {
             // Resolve requested type
             var service = (TResult)context.Container.Resolve(typeof(TResult), context.BuildKey.Name);
