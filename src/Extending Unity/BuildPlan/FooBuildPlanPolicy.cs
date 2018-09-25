@@ -5,7 +5,7 @@ using Unity.Policy;
 
 namespace BuildPlanExample
 {
-    public class FooBuildPlanPolicy : IBuildPlanPolicy
+    public class FooBuildPlanPolicy// TODO:  : IBuildPlanPolicy
     {
         public void BuildUp<TContext>(ref TContext context) where TContext : IBuilderContext
         {
